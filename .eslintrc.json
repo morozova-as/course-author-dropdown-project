@@ -18,7 +18,11 @@
     },
     "import/resolver": {
       "typescript": true,
-      "node": true
+      "node": true,
+      "babel-module": {
+        "root": ["./src/"],
+        "extensions": [".ts", ".tsx", ".js"]
+      }
     }
   },
   "parser": "@typescript-eslint/parser",
@@ -39,6 +43,9 @@
       }
     ],
     "react/react-in-jsx-scope": "off",
-    "react/jsx-uses-react": "off"
+    "react/jsx-uses-react": "off",
+    "import/imports-first": ["error", "absolute-first"],
+    "import/named": "off",
+    "import/no-extraneous-dependencies": "off"
   }
 }
