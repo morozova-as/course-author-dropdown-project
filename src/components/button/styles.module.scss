@@ -1,0 +1,39 @@
+@import 'mixins/interactive-element';
+@import 'mixins/use-hover';
+
+$button-color: #1c1c1c;
+$button-bg: #e6e6e6;
+$button-hover-bg: #d3d3d3;
+
+$easing: ease-out;
+$timing: 0.2s;
+
+.button {
+  @include interactiveElement;
+  @include useHover {
+    background-color: $button-hover-bg;
+  }
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: $button-color;
+  background-color: $button-bg;
+
+  padding: 5px;
+  border-radius: 15%;
+  border-width: 0;
+
+  cursor: pointer;
+
+  transition: color $timing $easing, background-color $timing $easing, opacity $timing $easing;
+  touch-action: manipulation;
+
+  &[disabled],
+  &[aria-disabled] {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
