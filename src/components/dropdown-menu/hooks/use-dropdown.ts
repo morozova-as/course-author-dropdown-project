@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { DropdownAction, DropdownContext } from './dropdown-provider';
+import { DropdownAction, DropdownContext } from '../dropdown-provider';
 
 export const useDropdown = () => {
   const { state, dispatch } = useContext(DropdownContext);

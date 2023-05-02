@@ -5,14 +5,14 @@ export enum DropdownAction {
   CLOSE = 'CLOSE',
 }
 
-export type Action = {
+type Action = {
   type: DropdownAction;
   payload: {
     id?: string;
   };
 };
 
-export type DropdownState = {
+type DropdownState = {
   activeDropdown: { id?: string } | null;
 };
 
@@ -31,23 +31,19 @@ const reducer = (state: DropdownState, { type, payload }: Action) => {
   }
 };
 
-type TransitionProps = unknown;
-
 type ContextProps = {
   state: DropdownState;
   dispatch: (action: Action) => void;
-  transitionProps: TransitionProps;
 };
 
 export const DropdownContext = createContext<ContextProps>({
   state: { activeDropdown: null },
   dispatch: () => {},
-  transitionProps: {},
 });
 
-export const DropdownProvider: FC<PropsWithChildren> = ({ children, ...transitionProps }) => {
+export const DropdownProvider: FC<PropsWithChildren> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, { activeDropdown: null });
-  const value = useMemo(() => ({ state, dispatch, transitionProps }), [state, transitionProps]);
+  const value = useMemo(() => ({ state, dispatch }), [state]);
 
   return <DropdownContext.Provider value={value}>{children}</DropdownContext.Provider>;
 };

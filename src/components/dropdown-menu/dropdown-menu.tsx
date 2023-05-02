@@ -3,7 +3,7 @@ import { useOutsideClick } from 'hooks';
 import { clsx } from 'clsx';
 import { DropdownItem } from './dropdown-item';
 import { DropdownView } from './dropdown-view';
-import { useDropdown } from './use-dropdown';
+import { useDropdown } from './hooks';
 import { DropdownMenuProps } from './types';
 import styles from './styles/dropdown-menu.module.scss';
 
