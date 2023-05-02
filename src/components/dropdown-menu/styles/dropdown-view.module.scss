@@ -1,0 +1,32 @@
+$timing: 150ms;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  background: #fff;
+
+  transform-origin: var(--transform-origin);
+}
+
+.dropdownEnter {
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+.dropdownEnterActive {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity $timing, transform $timing;
+}
+
+.dropdownExit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.dropdownExitActive {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity $timing, transform $timing;
+}

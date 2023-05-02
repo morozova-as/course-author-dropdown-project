@@ -5,11 +5,12 @@ import styles from './styles.module.scss';
 type ButtonProps = PropsWithChildren<{
   href?: string;
   className?: string;
+  onClick?: () => void;
 }>;
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ children, className }, ref) => {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ children, className, onClick }, ref) => {
   return (
-    <button ref={ref} className={clsx(className, styles.button)}>
+    <button ref={ref} className={clsx(className, styles.button)} onClick={onClick}>
       {children}
     </button>
   );
