@@ -8,6 +8,7 @@ const menuMock = [
     text: 'Поделиться в социальных сетях',
     Icon: ShareIcon,
     onClick: () => {
+      window.alert('Share...');
       console.log('Share...');
     },
   },
@@ -15,6 +16,7 @@ const menuMock = [
     text: 'Редактировать страницу',
     Icon: EditIcon,
     onClick: () => {
+      window.alert('Edit...');
       console.log('Edit...');
     },
   },
@@ -22,6 +24,7 @@ const menuMock = [
     text: 'Удалить страницу',
     Icon: TrashIcon,
     onClick: () => {
+      window.alert('Delete...');
       console.log('Delete...');
     },
   },
