@@ -17,7 +17,6 @@ export type TriggerElementProps = {
 
 export type DropdownTriggerProps = {
   TriggerElement: ForwardRefExoticComponent<TriggerElementProps & RefAttributes<HTMLButtonElement>>;
-  triggerMove: 'onClick' | 'onHover';
 };
 
 export type DropdownComponentProps = {

@@ -25,7 +25,7 @@ export const DropdownView: FC<PropsWithChildren<DropdownViewProps>> = ({
     () => ({
       name: 'defineTransformOrigin',
       enabled: true,
-      phase: 'main',
+      phase: 'beforeWrite',
       fn: ({ state }) => {
         setTransformOrigin(TRANSFORMS[state.placement as keyof typeof TRANSFORMS] || 'top left');
       },
@@ -33,10 +33,9 @@ export const DropdownView: FC<PropsWithChildren<DropdownViewProps>> = ({
     [setTransformOrigin]
   );
 
-  const hideOnScroll = useMemo<Modifier<'hideOnScroll'>>(
+  const hideOnScroll = useMemo<Modifier<'eventListeners'>>(
     () => ({
-      name: 'hideOnScroll',
-      phase: 'beforeWrite',
+      name: 'eventListeners',
       enabled: true,
       fn: ({ state }) => {
         setIsInViewPort(state.attributes.popper['data-popper-reference-hidden'] === false);
@@ -51,10 +50,10 @@ export const DropdownView: FC<PropsWithChildren<DropdownViewProps>> = ({
     {
       placement: 'bottom-start',
       modifiers: [
-        { name: 'eventListeners', enabled: true },
+        { name: 'eventListeners', enabled: isActive },
         {
           name: 'flip',
-          enabled: isActive,
+          enabled: true,
           options: {
             fallbackPlacements: ['bottom-end', 'bottom-start', 'top-start', 'top-end'],
           },
